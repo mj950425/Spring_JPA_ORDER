@@ -31,4 +31,18 @@ public class OrderService {
         orderRepository.save(order);
         return order.getId();
     }
+
+    @Transactional
+    public void orderCancel(Long orderId ) {
+        Order order = orderRepository.findOne(orderId);
+        order.cancel();
+    }
+
+    /** 주문 검색 */
+    /*
+    public List<Order> findOrders(OrderSearch orderSearch) {
+    return orderRepository.findAll(orderSearch);
+    }
+    */
+
 }

@@ -51,6 +51,8 @@ public class Order {
         delivery.setOrder(this);
     }
 
+    protected Order() {
+    }
 
     public static Order createOrder(Member member, Delivery delivery,OrderItem...orderItems) {
         Order order = new Order();
