@@ -11,8 +11,10 @@ import java.util.List;
 
 @Entity
 @Table(name = "orders")
-@Getter @Setter
+@Getter
+@Setter
 public class Order {
+
     @Id
     @GeneratedValue
     @Column(name = "order_id")
@@ -47,14 +49,14 @@ public class Order {
     }
 
     public void setDelivery(Delivery delivery) {
-        this.delivery=delivery;
+        this.delivery = delivery;
         delivery.setOrder(this);
     }
 
     protected Order() {
     }
 
-    public static Order createOrder(Member member, Delivery delivery,OrderItem...orderItems) {
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         Order order = new Order();
         order.setMember(member);
         order.setDelivery(delivery);
